@@ -1,4 +1,9 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+
 import 'package:voice_reocrder/views/recorded_list_view.dart';
 import 'package:voice_reocrder/views/recorder_view.dart';
 
@@ -15,7 +20,30 @@ class RecorderHomeView extends StatefulWidget {
 }
 
 class _RecorderHomeViewState extends State<RecorderHomeView> {
-  List<String> records = ['record 1', 'record 2'];
+  Directory appDirectory;
+  Stream<FileSystemEntity> fileStream;
+  List<String> records;
+
+  @override
+  void initState() {
+    super.initState();
+    records = [];
+    getApplicationDocumentsDirectory().then((value) {
+      appDirectory = value;
+      appDirectory.list().listen((onData) {
+        records.add(onData.path);
+      }).onDone(() {
+        records = records.reversed.toList();
+        setState(() {});
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,17 +53,30 @@ class _RecorderHomeViewState extends State<RecorderHomeView> {
       body: Column(
         children: [
           Expanded(
-            flex: 1,
-            child: RecorderView(),
-          ),
-          Expanded(
             flex: 2,
             child: RecordListView(
               records: records,
             ),
           ),
+          Expanded(
+            flex: 1,
+            child: RecorderView(
+              onSaved: _onRecordComplete,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  _onRecordComplete() {
+    records.clear();
+    appDirectory.list().listen((onData) {
+      records.add(onData.path);
+    }).onDone(() {
+      records.sort();
+      records = records.reversed.toList();
+      setState(() {});
+    });
   }
 }
