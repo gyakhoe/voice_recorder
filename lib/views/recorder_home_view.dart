@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'package:voice_reocrder/views/recorded_list_view.dart';
 import 'package:voice_reocrder/views/recorder_view.dart';
 
@@ -41,6 +39,9 @@ class _RecorderHomeViewState extends State<RecorderHomeView> {
 
   @override
   void dispose() {
+    fileStream = null;
+    appDirectory = null;
+    records = null;
     super.dispose();
   }
 

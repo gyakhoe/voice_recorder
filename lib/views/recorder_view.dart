@@ -20,22 +20,30 @@ enum RecordingState {
 }
 
 class _RecorderViewState extends State<RecorderView> {
-  IconData recordIcon = Icons.mic_none;
-  String recordText = 'Click To Start';
-  RecordingState recordingState = RecordingState.UnSet;
+  IconData _recordIcon = Icons.mic_none;
+  String _recordText = 'Click To Start';
+  RecordingState _recordingState = RecordingState.UnSet;
 
   // Recorder properties
   FlutterAudioRecorder audioRecorder;
 
   @override
   void initState() {
-    recordingState = RecordingState.Set;
     super.initState();
+
+    FlutterAudioRecorder.hasPermissions.then((hasPermision) {
+      if (hasPermision) {
+        _recordingState = RecordingState.Set;
+        _recordIcon = Icons.mic;
+        _recordText = 'Record';
+      }
+    });
   }
 
   @override
   void dispose() {
-    recordingState = RecordingState.UnSet;
+    _recordingState = RecordingState.UnSet;
+    audioRecorder = null;
     super.dispose();
   }
 
@@ -45,7 +53,10 @@ class _RecorderViewState extends State<RecorderView> {
       alignment: Alignment.center,
       children: [
         RaisedButton(
-          onPressed: _onRecordButtonPressed,
+          onPressed: () async {
+            await _onRecordButtonPressed();
+            setState(() {});
+          },
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
@@ -53,7 +64,7 @@ class _RecorderViewState extends State<RecorderView> {
             width: 150,
             height: 150,
             child: Icon(
-              recordIcon,
+              _recordIcon,
               size: 50,
             ),
           ),
@@ -61,7 +72,7 @@ class _RecorderViewState extends State<RecorderView> {
         Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              child: Text(recordText),
+              child: Text(_recordText),
               padding: const EdgeInsets.all(8),
             ))
       ],
@@ -69,61 +80,38 @@ class _RecorderViewState extends State<RecorderView> {
   }
 
   Future<void> _onRecordButtonPressed() async {
-    switch (recordingState) {
+    switch (_recordingState) {
       case RecordingState.Set:
-        await _initRecorder();
-        await _startRecording();
-
-        setState(() {
-          recordingState = RecordingState.Recording;
-          recordIcon = Icons.stop;
-          recordText = 'Recording';
-        });
+        await _recordVoice();
         break;
 
       case RecordingState.Recording:
         await _stopRecording();
-
-        setState(() {
-          recordingState = RecordingState.Stopped;
-          recordIcon = Icons.fiber_manual_record;
-          recordText = 'Record new one';
-        });
+        _recordingState = RecordingState.Stopped;
+        _recordIcon = Icons.fiber_manual_record;
+        _recordText = 'Record new one';
         break;
 
       case RecordingState.Stopped:
-        await _initRecorder();
-        await _startRecording();
-
-        setState(() {
-          recordingState = RecordingState.Recording;
-          recordIcon = Icons.stop;
-          recordText = 'Recording';
-        });
+        await _recordVoice();
         break;
 
-      default:
-        recordingState = RecordingState.Set;
-        recordIcon = Icons.mic_none;
-        recordText = 'Click to Start';
-        setState(() {});
+      case RecordingState.UnSet:
+        Scaffold.of(context).hideCurrentSnackBar();
+        Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text('Please allow recording from settings.'),
+        ));
         break;
     }
-    setState(() {});
   }
 
   _initRecorder() async {
     Directory appDirectory = await getApplicationDocumentsDirectory();
-
-    print(appDirectory);
     String filePath = appDirectory.path +
         '/' +
         DateTime.now().millisecondsSinceEpoch.toString() +
         '.aac';
-    print('file path is : $filePath');
 
-    print(
-        'Recorder permission is : ${await FlutterAudioRecorder.hasPermissions}');
     audioRecorder =
         FlutterAudioRecorder(filePath, audioFormat: AudioFormat.AAC);
     await audioRecorder.initialized;
@@ -131,13 +119,28 @@ class _RecorderViewState extends State<RecorderView> {
 
   _startRecording() async {
     await audioRecorder.start();
-    Recording recording = await audioRecorder.current(channel: 0);
-    print('Recording state is : ${recording.status}');
+    // await audioRecorder.current(channel: 0);
   }
 
   _stopRecording() async {
     await audioRecorder.stop();
 
     widget.onSaved();
+  }
+
+  Future<void> _recordVoice() async {
+    if (await FlutterAudioRecorder.hasPermissions) {
+      await _initRecorder();
+
+      await _startRecording();
+      _recordingState = RecordingState.Recording;
+      _recordIcon = Icons.stop;
+      _recordText = 'Recording';
+    } else {
+      Scaffold.of(context).hideCurrentSnackBar();
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text('Please allow recording from settings.'),
+      ));
+    }
   }
 }
