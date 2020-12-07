@@ -1,7 +1,21 @@
 # voice_reocrder
 
-A voice recorder app that is capable of displaying the recorded voice notes  
-and recording new one.
+A voice recorder app that is built using Flutter i.e. capable of recording voice note and playing them
+
+# Dependencies
+
+1. Flutter Audio Recorder (flutter_audio_recorder)
+2. Audio players (audio_players)
+3. Path Provider (path_privder)
+
+## Fetures
+
+1. Records voice
+2. Plays recorded voice
+3. Reocrds voice/media file into application document directory
+4. Displays list of recording available in documents directory
+5. Plays recorded voice/media file
+6. Shows progress indicator of played audio note
 
 ## Screenshots
 
