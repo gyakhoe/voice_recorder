@@ -5,7 +5,7 @@ and recording new one.
 
 ## Screenshots
 
-![Initial Screen](/assets/screenshots/IMG_1628.PNG { widget=10% })
+![Initial Screen](/assets/screenshots/IMG_1628.PNG){ width=10% }
 ![Recording Screen](/assets/screenshots/IMG_1629.PNG)
 ![Recording Complete Screen](/assets/screenshots/IMG_1630.PNG)
 
