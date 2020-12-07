@@ -5,7 +5,7 @@ and recording new one.
 
 ## Screenshots
 
-<img width="200" height="400" src="/assets/screenshots/IMG_1628.PNG" />
+<img width="200" height="300" src="/assets/screenshots/IMG_1628.PNG" />
 ![Recording Screen](/assets/screenshots/IMG_1629.PNG)
 ![Recording Complete Screen](/assets/screenshots/IMG_1630.PNG)
 
