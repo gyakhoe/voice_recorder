@@ -6,16 +6,15 @@ A voice recorder app that is built using Flutter i.e. capable of recording voice
 
 1. Flutter Audio Recorder (flutter_audio_recorder)
 2. Audio players (audio_players)
-3. Path Provider (path_privder)
+3. Path Provider (path_provider)
 
 ## Fetures
 
 1. Records voice
 2. Plays recorded voice
-3. Reocrds voice/media file into application document directory
-4. Displays list of recording available in documents directory
-5. Plays recorded voice/media file
-6. Shows progress indicator of played audio note
+3. Shows progress indicator of played audio
+4. Stores voice/media file into application document directory
+5. Displays list of recording available in documents directory
 
 ## Screenshots
 
