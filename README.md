@@ -5,7 +5,7 @@ and recording new one.
 
 ## Screenshots
 
-![Initial Screen](/assets/screenshots/IMG_1628.PNG =50x)
+![Initial Screen](/assets/screenshots/IMG_1628.PNG) {width=50%}
 ![Recording Screen](/assets/screenshots/IMG_1629.PNG)
 ![Recording Complete Screen](/assets/screenshots/IMG_1630.PNG)
 
