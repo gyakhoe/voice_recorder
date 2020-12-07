@@ -5,9 +5,13 @@ and recording new one.
 
 ## Screenshots
 
-<img width="200" height="350" src="/assets/screenshots/IMG_1628.PNG" />
-<img width="200" height="350" src="/assets/screenshots/IMG_1629.PNG" />
-<img width="200" height="350" src="/assets/screenshots/IMG_1630.PNG" />
+<img width="200" height="350" src="/assets/screenshots/IMG_1628.PNG" />[image1]
+<img width="200" height="350" src="/assets/screenshots/IMG_1629.PNG" />[image2]
+<img width="200" height="350" src="/assets/screenshots/IMG_1630.PNG" />[image3]
+
+![image1]
+![image2]
+![image3]
 
 ### Issues
 
