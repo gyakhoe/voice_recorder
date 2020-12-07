@@ -5,7 +5,7 @@ and recording new one.
 
 ## Screenshots
 
-<img width="200" height="350" src="/assets/screenshots/IMG_1628.PNG" /> <img width="200" height="350" src="/assets/screenshots/IMG_1629.PNG" /> <img width="200" height="350" src="/assets/screenshots/IMG_1630.PNG" />
+<img width="200" height="350" src="/assets/screenshots/IMG_1628.PNG" alt="Inital Screen" /> <img width="200" height="350" src="/assets/screenshots/IMG_1629.PNG" alt="Recording Screen"/> <img width="200" height="350" src="/assets/screenshots/IMG_1630.PNG" alt="New Recording Screen"/>
 
 ### Issues
 
