@@ -1,16 +1,25 @@
 # voice_reocrder
 
-A new Flutter project.
+A voice recorder app that is capable of displaying the recorded voice notes  
+and recording new one.
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+![Initial Screen](https://drive.google.com/file/d/1t2hiFY6OLw9q3E3iBKTm_YdLBfFhJApY/view?usp=sharing)
+![Recording Screen](https://drive.google.com/file/d/1TU6BVqAMaGthR__mr6rUYsVyeXTT-kCf/view?usp=sharing)
+![Recording Complete Screen](https://drive.google.com/file/d/1YSr0lTkBqeUg8rS6VOLRexEwh7PqAVYw/view?usp=sharing)
 
-A few resources to get you started if this is your first Flutter project:
+### Issues
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+1. When playing audio and if another expansion tile is tapped then audio progess will display in taped tile
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Improvment Required
+
+1. Visual progess of recording in time
+2. Audio pitch animation into the recording button
+3. Other expansion tile should be close when another tile is taped
+4. Audio pause and resume functionality
+
+### Critical
+
+1. Test code is required
