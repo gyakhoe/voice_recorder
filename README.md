@@ -5,9 +5,9 @@ and recording new one.
 
 ## Screenshots
 
-![Initial Screen](https://drive.google.com/file/d/1t2hiFY6OLw9q3E3iBKTm_YdLBfFhJApY/view?usp=sharing)
-![Recording Screen](https://drive.google.com/file/d/1TU6BVqAMaGthR__mr6rUYsVyeXTT-kCf/view?usp=sharing)
-![Recording Complete Screen](https://drive.google.com/file/d/1YSr0lTkBqeUg8rS6VOLRexEwh7PqAVYw/view?usp=sharing)
+![Initial Screen](/assets/screenshots/IMG_1628.PNG)
+![Recording Screen](/assets/screenshots/IMG_1629.PNG)
+![Recording Complete Screen](/assets/screenshots/IMG_1630.PNG)
 
 ### Issues
 
