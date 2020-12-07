@@ -19,3 +19,7 @@ and recording new one.
 2. Audio pitch animation into the recording button
 3. Other expansion tile should be close when another tile is taped
 4. Audio pause and resume functionality
+
+### Critical
+
+1. Test code is required
