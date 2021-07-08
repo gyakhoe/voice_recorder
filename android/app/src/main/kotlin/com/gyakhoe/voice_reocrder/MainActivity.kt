@@ -1,4 +1,4 @@
-package com.gyakhoe.voice_reocrder
+package com.gyakhoe.voice_recorder
 
 import io.flutter.embedding.android.FlutterActivity
 

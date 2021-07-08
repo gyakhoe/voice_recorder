@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -8,9 +7,8 @@ import 'package:voice_reocrder/views/recorder_view.dart';
 class RecorderHomeView extends StatefulWidget {
   final String _title;
 
-  const RecorderHomeView({Key key, @required String title})
-      : assert(title != null),
-        _title = title,
+  const RecorderHomeView({Key? key, required String title})
+      : _title = title,
         super(key: key);
 
   @override
@@ -18,18 +16,16 @@ class RecorderHomeView extends StatefulWidget {
 }
 
 class _RecorderHomeViewState extends State<RecorderHomeView> {
-  Directory appDirectory;
-  Stream<FileSystemEntity> fileStream;
-  List<String> records;
+  late Directory appDirectory;
+  List<String> records = [];
 
   @override
   void initState() {
     super.initState();
-    records = [];
     getApplicationDocumentsDirectory().then((value) {
       appDirectory = value;
       appDirectory.list().listen((onData) {
-        records.add(onData.path);
+        if (onData.path.contains('.aac')) records.add(onData.path);
       }).onDone(() {
         records = records.reversed.toList();
         setState(() {});
@@ -39,9 +35,7 @@ class _RecorderHomeViewState extends State<RecorderHomeView> {
 
   @override
   void dispose() {
-    fileStream = null;
-    appDirectory = null;
-    records = null;
+    appDirectory.delete();
     super.dispose();
   }
 
@@ -73,7 +67,7 @@ class _RecorderHomeViewState extends State<RecorderHomeView> {
   _onRecordComplete() {
     records.clear();
     appDirectory.list().listen((onData) {
-      records.add(onData.path);
+      if (onData.path.contains('.aac')) records.add(onData.path);
     }).onDone(() {
       records.sort();
       records = records.reversed.toList();

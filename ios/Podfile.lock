@@ -2,7 +2,7 @@ PODS:
   - audioplayers (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - flutter_audio_recorder (0.5.4):
+  - flutter_audio_recorder2 (0.0.1):
     - Flutter
   - path_provider (0.0.1):
     - Flutter
@@ -10,7 +10,7 @@ PODS:
 DEPENDENCIES:
   - audioplayers (from `.symlinks/plugins/audioplayers/ios`)
   - Flutter (from `Flutter`)
-  - flutter_audio_recorder (from `.symlinks/plugins/flutter_audio_recorder/ios`)
+  - flutter_audio_recorder2 (from `.symlinks/plugins/flutter_audio_recorder2/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
 
 EXTERNAL SOURCES:
@@ -18,17 +18,17 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/audioplayers/ios"
   Flutter:
     :path: Flutter
-  flutter_audio_recorder:
-    :path: ".symlinks/plugins/flutter_audio_recorder/ios"
+  flutter_audio_recorder2:
+    :path: ".symlinks/plugins/flutter_audio_recorder2/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
 
 SPEC CHECKSUMS:
   audioplayers: 455322b54050b30ea4b1af7cd9e9d105f74efa8c
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_audio_recorder: eb998d4e75e59b39d9e3ca1818a5e0f3a82f5836
-  path_provider: d1a68c4065ce2e0f6fd03f8a46d698525dc79f06
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_audio_recorder2: 0eda9d0c791d9d093e6f5f07df414d34edec4eda
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
 
 PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

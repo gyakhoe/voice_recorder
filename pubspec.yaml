@@ -6,15 +6,16 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  audioplayers: ^0.17.0
-  cupertino_icons: ^1.0.0
-  flutter_audio_recorder: ^0.5.5
-  path_provider: ^1.6.24
+  audioplayers: ^0.19.1
+  cupertino_icons: ^1.0.3
+  
+  flutter_audio_recorder2: ^0.0.2
+  path_provider: ^2.0.2
 
 dev_dependencies:
   flutter_test:
